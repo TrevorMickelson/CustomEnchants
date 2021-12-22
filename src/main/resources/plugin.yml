@@ -1,0 +1,5 @@
+name: CustomEnchants
+author: CodePunisher
+version: 1.0
+main: com.mcaim.customenchants.EnchantPlugin
+api-version: 1.16

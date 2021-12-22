@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CustomEnchants:jar">
+    <output-path>$USER_HOME$/AppData/Roaming/VisualSpigot/minecraft_servers/kG98Bd5sX9/plugins</output-path>
+    <root id="archive" name="CustomEnchants.jar">
+      <element id="module-output" name="CustomEnchants" />
+    </root>
+  </artifact>
+</component>
