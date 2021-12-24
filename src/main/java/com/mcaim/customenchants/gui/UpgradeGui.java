@@ -3,10 +3,8 @@ package com.mcaim.customenchants.gui;
 import com.mcaim.core.gui.Gui;
 import com.mcaim.core.item.ItemBuild;
 import com.mcaim.core.util.ChatPrefix;
-import com.mcaim.customenchants.EnchantPlugin;
-import com.mcaim.customenchants.models.CustomEnchant;
-import com.mcaim.customenchants.models.EnchantAdder;
-import com.mcaim.customenchants.util.EnchantStorage;
+import com.mcaim.customenchants.models.CustomEnchantBuilder;
+import com.mcaim.customenchants.models.ICustomEnchant;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -26,8 +24,8 @@ public class UpgradeGui extends Gui {
         ItemStack inHand = player.getInventory().getItemInMainHand();
         int index = 0;
 
-        for (CustomEnchant customEnchant : getCustomEnchantsFromItemStack(inHand)) {
-            int currentTier = inHand.getEnchantmentLevel(customEnchant);
+        for (ICustomEnchant customEnchant : getCustomEnchantsFromItemStack(inHand)) {
+            int currentTier = inHand.getEnchantmentLevel(customEnchant.getEnchantment());
             int upgradeCost = getUpgradeCost(currentTier);
             ItemStack guiItem = getGuiItemFromCustomEnchant(currentTier, customEnchant);
 
@@ -44,7 +42,7 @@ public class UpgradeGui extends Gui {
                     return;
                 }
 
-                new EnchantAdder(inHand, customEnchant).upgradeCustomEnchant(currentTier);
+                CustomEnchantBuilder.of(inHand, customEnchant).upgradeCustomEnchant(currentTier);
                 player.sendMessage(ChatPrefix.SUCCESS + "You have successfully upgraded the custom enchant: " + customEnchant.getColoredName());
 
                 if (!player.isOp())
@@ -60,21 +58,18 @@ public class UpgradeGui extends Gui {
         fillBackGround();
     }
 
-    private List<CustomEnchant> getCustomEnchantsFromItemStack(ItemStack item) {
-        EnchantStorage storage = EnchantPlugin.getInstance().getEnchantStorage();
-        List<CustomEnchant> customEnchantList = new ArrayList<>();
+    private List<ICustomEnchant> getCustomEnchantsFromItemStack(ItemStack item) {
+        List<ICustomEnchant> customEnchantList = new ArrayList<>();
 
         for (Enchantment enchantment : item.getEnchantments().keySet()) {
-            CustomEnchant customEnchant = storage.getCustomEnchant(enchantment.getName());
-
-            if (customEnchant != null)
-                customEnchantList.add(customEnchant);
+            if (enchantment instanceof ICustomEnchant)
+                customEnchantList.add((ICustomEnchant) enchantment);
         }
 
         return customEnchantList;
     }
 
-    private ItemStack getGuiItemFromCustomEnchant(int currentTier, CustomEnchant customEnchant) {
+    private ItemStack getGuiItemFromCustomEnchant(int currentTier, ICustomEnchant customEnchant) {
         int nextTier = currentTier + 1;
         int maxTier = customEnchant.getMaxLevel();
 
@@ -97,7 +92,7 @@ public class UpgradeGui extends Gui {
         return ItemBuild.of(type).name(name).lore(lore).flag(ItemFlag.HIDE_ATTRIBUTES).build();
     }
 
-    private boolean isFullyUpgraded(int currentTier, CustomEnchant customEnchant) {
+    private boolean isFullyUpgraded(int currentTier, ICustomEnchant customEnchant) {
         int maxTier = customEnchant.getMaxLevel();
         return currentTier >= maxTier;
     }

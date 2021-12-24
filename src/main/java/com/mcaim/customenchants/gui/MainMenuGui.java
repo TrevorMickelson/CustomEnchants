@@ -21,7 +21,7 @@ public class MainMenuGui extends Gui {
         ItemStack upgrader = ItemBuild.of(Material.ANVIL).name("&6&lEnchant Upgrader").lore("&7&oUpgrades existing enchant").build();
 
         setItem(11, customEnchants, (player) -> {
-            new AllEnchantsGui(player, false).open();
+            new AllEnchantsGui(player).open();
         });
 
         setItem(13, enchanter, (player) -> {
@@ -34,6 +34,12 @@ public class MainMenuGui extends Gui {
             if (isNotCustomEnchantedItem(enchantedItem)) {
                 player.closeInventory();
                 player.sendMessage(ChatPrefix.FAIL + "Must be holding a custom enchanted item to use this!");
+                return;
+            }
+
+            if (enchantedItem.getType() == Material.ENCHANTED_BOOK) {
+                player.closeInventory();
+                player.sendMessage(ChatPrefix.FAIL + "This menu does not work on books! Only works on items!");
                 return;
             }
 

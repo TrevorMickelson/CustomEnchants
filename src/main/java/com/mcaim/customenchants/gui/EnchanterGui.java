@@ -5,9 +5,9 @@ import com.mcaim.core.item.ItemBuild;
 import com.mcaim.core.util.ChatPrefix;
 import com.mcaim.core.util.PlayerUtil;
 import com.mcaim.customenchants.EnchantPlugin;
-import com.mcaim.customenchants.models.CustomEnchant;
-import com.mcaim.customenchants.models.EnchantAdder;
-import com.mcaim.customenchants.models.EnchantTier;
+import com.mcaim.customenchants.models.CustomEnchantBuilder;
+import com.mcaim.customenchants.models.CustomEnchantTier;
+import com.mcaim.customenchants.models.ICustomEnchant;
 import com.mcaim.customenchants.util.EnchantStorage;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -31,9 +31,9 @@ public class EnchanterGui extends Gui {
     public void init() {
         int inventoryIndex = FIRST_INVENTORY_SLOT;
 
-        for (EnchantTier enchantTier : EnchantTier.values()) {
+        for (CustomEnchantTier enchantTier : CustomEnchantTier.values()) {
             setItem(inventoryIndex, getEnchantTierItemStack(enchantTier), (player) -> {
-                CustomEnchant randomEnchant = getRandomCustomEnchantForPlayer(enchantTier);
+                ICustomEnchant randomEnchant = getRandomCustomEnchantForPlayer(enchantTier);
 
                 if (randomEnchant == null) {
                     player.sendMessage(ChatPrefix.FAIL + "You don't have access to any custom enchants! Obtain from /Rankups!");
@@ -52,7 +52,7 @@ public class EnchanterGui extends Gui {
                 if (!player.isOp())
                     player.setLevel(level - cost);
 
-                player.sendMessage(ChatPrefix.SUCCESS + "Custom enchant " + randomEnchant.getColoredName() + "" + ChatColor.GRAY + " successfully purchased!");
+                player.sendMessage(ChatPrefix.SUCCESS + "Custom enchant " + randomEnchant.getName() + "" + ChatColor.GRAY + " successfully purchased!");
                 PlayerUtil.giveItem(player, getCustomEnchantBookItemStack(randomEnchant));
             });
 
@@ -63,20 +63,20 @@ public class EnchanterGui extends Gui {
         fillBackGround();
     }
 
-    private ItemStack getEnchantTierItemStack(EnchantTier tier) {
+    private ItemStack getEnchantTierItemStack(CustomEnchantTier tier) {
         ItemBuild build = ItemBuild.of(Material.ENCHANTED_BOOK);
         build.name(tier.getName()).lore(getLoreFromCustomEnchantTier(tier));
         build.flag(ItemFlag.HIDE_ATTRIBUTES);
         return build.build();
     }
 
-    private List<String> getLoreFromCustomEnchantTier(EnchantTier tier) {
+    private List<String> getLoreFromCustomEnchantTier(CustomEnchantTier tier) {
         EnchantStorage storage = EnchantPlugin.getInstance().getEnchantStorage();
 
-        List<CustomEnchant> customEnchantsList = storage.getCustomEnchantsFromTier(tier);
+        List<ICustomEnchant> customEnchantsList = storage.getCustomEnchantsFromTier(tier);
         List<String> lore = new ArrayList<>();
 
-        for (CustomEnchant customEnchant : customEnchantsList) {
+        for (ICustomEnchant customEnchant : customEnchantsList) {
             boolean hasPermission = player.hasPermission(customEnchant.getPermission());
             String accessDisplay = !hasPermission ? "&c✖ &c" : "&a✔ &a";
             String loreLine = accessDisplay + customEnchant.getName();
@@ -88,21 +88,20 @@ public class EnchanterGui extends Gui {
         return lore;
     }
 
-    private List<CustomEnchant> getPlayersCustomEnchantsFromTier(EnchantTier enchantTier) {
+    private List<ICustomEnchant> getPlayersCustomEnchantsFromTier(CustomEnchantTier enchantTier) {
+        List<ICustomEnchant> customEnchantList = new ArrayList<>();
         EnchantStorage storage = EnchantPlugin.getInstance().getEnchantStorage();
-        List<CustomEnchant> customEnchantList = new ArrayList<>();
 
-        for (CustomEnchant customEnchant : storage.getCustomEnchantsFromTier(enchantTier)) {
-            if (player.hasPermission(customEnchant.getPermission())) {
+        for (ICustomEnchant customEnchant : storage.getCustomEnchantsFromTier(enchantTier)) {
+            if (player.hasPermission(customEnchant.getPermission()))
                 customEnchantList.add(customEnchant);
-            }
         }
 
         return customEnchantList;
     }
 
-    private CustomEnchant getRandomCustomEnchantForPlayer(EnchantTier enchantTier) {
-        List<CustomEnchant> playersCustomEnchants = getPlayersCustomEnchantsFromTier(enchantTier);
+    private ICustomEnchant getRandomCustomEnchantForPlayer(CustomEnchantTier enchantTier) {
+        List<ICustomEnchant> playersCustomEnchants = getPlayersCustomEnchantsFromTier(enchantTier);
 
         if (playersCustomEnchants.isEmpty()) return null;
 
@@ -110,12 +109,12 @@ public class EnchanterGui extends Gui {
         return playersCustomEnchants.get(randomIndex);
     }
 
-    private ItemStack getCustomEnchantBookItemStack(CustomEnchant customEnchant) {
-        String name = customEnchant.getColoredName();
+    private ItemStack getCustomEnchantBookItemStack(ICustomEnchant customEnchant) {
+        String name = customEnchant.getName();
         Material type = Material.ENCHANTED_BOOK;
 
         ItemStack enchantedBook = ItemBuild.of(type).name(name).lore("&7&oDrag over desired item").build();
-        new EnchantAdder(enchantedBook, customEnchant).forceAddCustomEnchant(1);
+        CustomEnchantBuilder.of(enchantedBook, customEnchant).addCustomEnchant();
         return enchantedBook;
     }
 }

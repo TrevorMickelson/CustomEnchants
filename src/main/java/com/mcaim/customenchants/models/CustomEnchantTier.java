@@ -1,6 +1,6 @@
 package com.mcaim.customenchants.models;
 
-public enum EnchantTier {
+public enum CustomEnchantTier {
     COMMON("&f&lCOMMON", 15),
     UNCOMMON("&6&lUNCOMMON", 30),
     RARE("&d&lRARE", 50),
@@ -9,7 +9,7 @@ public enum EnchantTier {
     private final String name;
     private final int xpCost;
 
-    EnchantTier(String name, int xpCost) {
+    CustomEnchantTier(String name, int xpCost) {
         this.name = name;
         this.xpCost = xpCost;
     }

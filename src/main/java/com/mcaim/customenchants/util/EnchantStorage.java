@@ -1,23 +1,16 @@
 package com.mcaim.customenchants.util;
 
-import com.mcaim.customenchants.models.CustomEnchant;
-import com.mcaim.customenchants.models.EnchantTier;
+import com.mcaim.customenchants.models.CustomEnchantTier;
+import com.mcaim.customenchants.models.ICustomEnchant;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public final class EnchantStorage {
-    private final Map<String, CustomEnchant> customEnchants = new HashMap<>();
-    private final Map<EnchantTier, List<CustomEnchant>> customEnchantTiers = new HashMap<>();
+    private final HashSet<ICustomEnchant> customEnchants = new HashSet<>();
+    private final Map<CustomEnchantTier, List<ICustomEnchant>> customEnchantTiers = new HashMap<>();
 
-    public void addCustomEnchant(CustomEnchant customEnchant) {
-        customEnchants.put(customEnchant.getName().toLowerCase(), customEnchant);
-    }
-
-    public void addCustomEnchantToTier(CustomEnchant customEnchant, EnchantTier tier) {
-        List<CustomEnchant> customEnchantList = getCustomEnchantsFromTier(tier);
+    public void addCustomEnchantToTier(ICustomEnchant customEnchant, CustomEnchantTier tier) {
+        List<ICustomEnchant> customEnchantList = getCustomEnchantsFromTier(tier);
         customEnchantList.add(customEnchant);
 
         if (customEnchantTiers.containsKey(tier)) {
@@ -27,22 +20,12 @@ public final class EnchantStorage {
         }
     }
 
-    public CustomEnchant getCustomEnchant(String name) {
-        return customEnchants.get(name.toLowerCase());
-    }
-
-    public List<CustomEnchant> getCustomEnchantsFromTier(EnchantTier tier) {
+    public List<ICustomEnchant> getCustomEnchantsFromTier(CustomEnchantTier tier) {
         if (customEnchantTiers.containsKey(tier))
             return customEnchantTiers.get(tier);
 
         return new ArrayList<>();
     }
 
-    public List<CustomEnchant> getAllCustomEnchants() {
-        return new ArrayList<>(customEnchants.values());
-    }
-
-    public List<String> getAllCustomEnchantsByName() {
-        return new ArrayList<>(customEnchants.keySet());
-    }
+    public HashSet<ICustomEnchant> getCustomEnchants() { return customEnchants; }
 }

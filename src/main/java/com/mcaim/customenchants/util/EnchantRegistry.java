@@ -1,52 +1,54 @@
 package com.mcaim.customenchants.util;
 
 import com.mcaim.customenchants.EnchantPlugin;
-import com.mcaim.customenchants.listeners.enchants.tools.AutoPickup;
-import com.mcaim.customenchants.listeners.enchants.boots.Flight;
-import com.mcaim.customenchants.listeners.enchants.boots.Jump;
-import com.mcaim.customenchants.models.CustomEnchant;
-import com.mcaim.customenchants.models.EnchantTier;
+import com.mcaim.customenchants.models.CustomEnchants;
+import com.mcaim.customenchants.models.CustomEnchantTier;
+import com.mcaim.customenchants.models.ICustomEnchant;
 import org.bukkit.enchantments.Enchantment;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 public final class EnchantRegistry {
     public static void registerAllCustomEnchants() {
-        registerCustomEnchant(new Jump(), EnchantTier.COMMON);
-        registerCustomEnchant(new AutoPickup(), EnchantTier.UNCOMMON);
-        registerCustomEnchant(new Flight(), EnchantTier.VERY_RARE);
+        Field[] constants = CustomEnchants.class.getFields();
+
+        for (Field field : constants) {
+            if (!Modifier.isStatic(field.getModifiers())) continue;
+
+            if (field.getType() != ICustomEnchant.class) continue;
+
+            try {
+                ICustomEnchant customEnchant = (ICustomEnchant) field.get(null);
+                registerCustomEnchant(customEnchant);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    private static void registerCustomEnchant(CustomEnchant customEnchant, EnchantTier tier) {
-        registerListener(customEnchant);
-        registerStorage(customEnchant, tier);
+    private static void registerCustomEnchant(ICustomEnchant customEnchant) {
+        registerStorage(customEnchant, customEnchant.getEnchantTier());
         registerThroughMinecraft(customEnchant);
     }
 
-    private static void registerListener(CustomEnchant customEnchant) {
-        EnchantPlugin plugin = EnchantPlugin.getInstance();
-        plugin.getServer().getPluginManager().registerEvents(customEnchant, plugin);
-    }
-
-    private static void registerStorage(CustomEnchant customEnchant, EnchantTier tier) {
-        EnchantStorage storage = EnchantPlugin.getInstance().getEnchantStorage();
-        storage.addCustomEnchant(customEnchant);
+    private static void registerStorage(ICustomEnchant customEnchant, CustomEnchantTier tier) {
+        EnchantStorage storage = EnchantPlugin.getPlugin(EnchantPlugin.class).getEnchantStorage();
+        storage.getCustomEnchants().add(customEnchant);
         storage.addCustomEnchantToTier(customEnchant, tier);
     }
 
-    public static void registerThroughMinecraft(CustomEnchant customEnchant) {
+    private static void registerThroughMinecraft(ICustomEnchant customEnchant) {
         try {
-            Field field = Enchantment.class.getDeclaredField("acceptingNew");
+            boolean registered = Arrays.stream(Enchantment.values()).toList().contains(customEnchant.getEnchantment());
 
-            field.setAccessible(true);
-            field.set(null, true);
-
-            boolean registered = Arrays.stream(Enchantment.values()).collect(Collectors.toList()).contains(customEnchant);
-
-            if (!registered)
-                Enchantment.registerEnchantment(customEnchant);
+            if (!registered) {
+                Field acceptingNew = Enchantment.class.getDeclaredField("acceptingNew");
+                acceptingNew.setAccessible(true);
+                acceptingNew.set(null, true);
+                Enchantment.registerEnchantment(customEnchant.getEnchantment());
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -9,11 +9,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6500954c-d515-42dc-a3f9-318eff643fd2" name="Changes" comment="" />
+    <list default="true" id="6500954c-d515-42dc-a3f9-318eff643fd2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/AutoPickup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/CustomEnchantBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/CustomEnchantWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/CustomEnchants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/ICustomEnchant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/EnchantPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/EnchantPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/AllEnchantsGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/AllEnchantsGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/EnchanterGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/EnchanterGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/MainMenuGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/MainMenuGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/UpgradeGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/UpgradeGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/CustomBookListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/enchants/boots/Flight.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/enchants/boots/Jump.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/enchants/tools/AutoPickup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/CustomEnchant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/EnchantAdder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/EnchantTarget.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/EnchantTier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/CustomEnchantTier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantRegistry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantUsage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantUsage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -29,6 +65,7 @@
     </option>
   </component>
   <component name="ProjectId" id="226fN7dH1IFxfbRZfJwhXmnGu9L" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,13 +73,16 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/AppData/Roaming/VisualSpigot/minecraft_servers/kG98Bd5sX9/plugins/McaimCore.jar" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\trevm\IdeaProjects\CustomEnchants\src\main\java\com\mcaim\customenchants\listeners" />
       <recent name="C:\Users\trevm\IdeaProjects\CustomEnchants\src\main\java\com\mcaim\customenchants\gui" />
     </key>
   </component>
