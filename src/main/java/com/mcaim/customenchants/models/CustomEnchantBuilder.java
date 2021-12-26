@@ -1,82 +1,53 @@
 package com.mcaim.customenchants.models;
 
 import com.mcaim.core.item.ItemBuild;
-import com.mcaim.core.util.ChatPrefix;
+import com.mcaim.core.item.ItemUtil;
 import com.mcaim.core.util.Util;
-import com.mcaim.customenchants.util.EnchantUtil;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 
 public class CustomEnchantBuilder {
+    private static final String ENCHANT_KEY = "CustomEnchant";
+
     private final ItemBuild builder;
     private final ICustomEnchant customEnchant;
+    private int currentTier;
 
     public CustomEnchantBuilder(ItemStack itemStack, ICustomEnchant customEnchant) {
-        builder = new ItemBuild(itemStack);
+        this.builder = new ItemBuild(itemStack);
         this.customEnchant = customEnchant;
+
+        Enchantment enchantment = customEnchant.getEnchantment();
+
+        // If the enchantment is already on the item, setting
+        // tier to the actual tier on the item, otherwise defaulting to 1
+        if (itemStack.containsEnchantment(enchantment)) {
+            currentTier = itemStack.getEnchantments().get(enchantment);
+        } else {
+            currentTier = 1;
+        }
     }
 
     public void addCustomEnchant() {
-        addCustomEnchant(1);
+        String lore = getCustomEnchantLoreName();
+        builder.enchant(customEnchant.getEnchantment(), currentTier).addLore(lore);
+
+        if (!ItemUtil.hasUniqueKey(builder.build(), ENCHANT_KEY))
+            builder.giveUniqueKey(ENCHANT_KEY);
     }
 
-    public void addCustomEnchant(int tier) {
-        String lore = getCustomEnchantLoreName(customEnchant, tier);
-        String key = EnchantUtil.ENCHANT_KEY;
-        builder.enchant(customEnchant.getEnchantment(), tier).giveUniqueKey(key).addLore(lore);
-    }
-
-    public void upgradeCustomEnchant(int currentTier) {
-        int newTier = currentTier + 1;
-        String oldLore = getCustomEnchantLoreName(customEnchant, currentTier);
+    public void upgradeCustomEnchant() {
+        currentTier += 1;
+        String oldLore = getCustomEnchantLoreName();
 
         // Removing old lore and old custom enchant
         builder.removeLore(oldLore).removeEnchant(customEnchant.getEnchantment());
-
-        addCustomEnchant(newTier);
+        addCustomEnchant();
     }
 
-    public void addCustomEnchantForPlayer(Player player) {
-        addCustomEnchantForPlayer(player, 1);
-    }
-
-    public void addCustomEnchantForPlayer(Player player, int tier) {
-        if (!canAddCustomEnchant(player))
-            return;
-
-        addCustomEnchant(tier);
-    }
-
-    private boolean canAddCustomEnchant(Player player) {
-        ItemStack itemStack = builder.build();
-        boolean itemExists = itemStack != null && itemStack.getType() != Material.AIR;
-
-        if (!itemExists) {
-            player.sendMessage(ChatPrefix.FAIL + "Attempted enchanted item does not exist!");
-            return false;
-        }
-
-        boolean canAddCustomEnchantToItem = customEnchant.getEnchantmentTarget().includes(builder.build());
-
-        if (!canAddCustomEnchantToItem) {
-            player.sendMessage(ChatPrefix.FAIL + "Enchantment can't be added to item!");
-            return false;
-        }
-
-        boolean itemContainsCustomEnchant = itemStack.containsEnchantment(customEnchant.getEnchantment());
-
-        if (itemContainsCustomEnchant) {
-            player.sendMessage(ChatPrefix.FAIL + "Item already has that custom enchantment!");
-            return false;
-        }
-
-        return true;
-    }
-
-    private String getCustomEnchantLoreName(ICustomEnchant customEnchant, int tier) {
+    private String getCustomEnchantLoreName() {
         String lore = customEnchant.getColoredName() + customEnchant.getName();
-        lore += tier > 1 ? " " + Util.intToRomanNumeral(tier) : "";
+        lore += currentTier > 1 ? " " + Util.intToRomanNumeral(currentTier) : "";
         return lore;
     }
 

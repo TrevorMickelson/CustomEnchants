@@ -6,7 +6,7 @@ import com.mcaim.customenchants.models.ICustomEnchant;
 import java.util.*;
 
 public final class EnchantStorage {
-    private final HashSet<ICustomEnchant> customEnchants = new HashSet<>();
+    private final LinkedHashSet<ICustomEnchant> customEnchants = new LinkedHashSet<>();
     private final Map<CustomEnchantTier, List<ICustomEnchant>> customEnchantTiers = new HashMap<>();
 
     public void addCustomEnchantToTier(ICustomEnchant customEnchant, CustomEnchantTier tier) {

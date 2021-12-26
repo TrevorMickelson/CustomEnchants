@@ -9,35 +9,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6500954c-d515-42dc-a3f9-318eff643fd2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/AutoPickup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/CustomEnchantBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/CustomEnchantWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/CustomEnchants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/ICustomEnchant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="6500954c-d515-42dc-a3f9-318eff643fd2" name="Changes" comment="Rebuilt structure of custom enchants, still need to fix a bug, and implement the custom enchant listeners">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/CustomEnchantListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/ToolCustomEnchantListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/CustomEnchantments.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/EnchantPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/EnchantPlugin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/AllEnchantsGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/AllEnchantsGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/EnchanterGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/EnchanterGui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/MainMenuGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/MainMenuGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/UpgradeGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/UpgradeGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/CustomBookListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/enchants/boots/Flight.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/enchants/boots/Jump.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/enchants/tools/AutoPickup.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/CustomEnchant.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/EnchantAdder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/EnchantTarget.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/EnchantTier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/CustomEnchantTier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/AutoPickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/AutoPickup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/CustomEnchantBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/CustomEnchantBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/CustomEnchantWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/CustomEnchantWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/CustomEnchants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/ICustomEnchant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/ICustomEnchant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantRegistry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantUsage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantUsage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantUtil.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +40,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -95,6 +90,14 @@
       <option name="presentableId" value="Default" />
       <updated>1639162915513</updated>
     </task>
+    <task id="LOCAL-00001" summary="Rebuilt structure of custom enchants, still need to fix a bug, and implement the custom enchant listeners">
+      <created>1640323530115</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1640323530115</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -107,5 +110,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Rebuilt structure of custom enchants, still need to fix a bug, and implement the custom enchant listeners" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rebuilt structure of custom enchants, still need to fix a bug, and implement the custom enchant listeners" />
   </component>
 </project>

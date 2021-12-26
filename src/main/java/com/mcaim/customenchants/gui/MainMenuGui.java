@@ -3,7 +3,6 @@ package com.mcaim.customenchants.gui;
 import com.mcaim.core.gui.Gui;
 import com.mcaim.core.item.ItemBuild;
 import com.mcaim.core.util.ChatPrefix;
-import com.mcaim.customenchants.util.EnchantUtil;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;

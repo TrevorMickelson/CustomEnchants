@@ -1,8 +1,8 @@
 package com.mcaim.customenchants.util;
 
 import com.mcaim.customenchants.EnchantPlugin;
-import com.mcaim.customenchants.models.CustomEnchants;
 import com.mcaim.customenchants.models.CustomEnchantTier;
+import com.mcaim.customenchants.models.CustomEnchantments;
 import com.mcaim.customenchants.models.ICustomEnchant;
 import org.bukkit.enchantments.Enchantment;
 
@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public final class EnchantRegistry {
     public static void registerAllCustomEnchants() {
-        Field[] constants = CustomEnchants.class.getFields();
+        Field[] constants = CustomEnchantments.class.getFields();
 
         for (Field field : constants) {
             if (!Modifier.isStatic(field.getModifiers())) continue;

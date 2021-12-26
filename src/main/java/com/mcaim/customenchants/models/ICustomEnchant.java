@@ -14,9 +14,9 @@ public interface ICustomEnchant {
 
     String getPermission();
 
-    Enchantment getEnchantment();
-
     String getDescription();
 
     CustomEnchantTier getEnchantTier();
+
+    Enchantment getEnchantment();
 }

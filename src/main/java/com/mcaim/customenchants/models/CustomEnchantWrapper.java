@@ -1,5 +1,6 @@
 package com.mcaim.customenchants.models;
 
+import com.mcaim.customenchants.EnchantPlugin;
 import org.bukkit.ChatColor;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
@@ -16,7 +17,7 @@ public final class CustomEnchantWrapper extends Enchantment implements ICustomEn
     private final CustomEnchantTier enchantTier;
 
     public CustomEnchantWrapper(String name, ChatColor chatColor, int maxLevel, EnchantmentTarget enchantmentTarget, String description, CustomEnchantTier enchantTier) {
-        super(NamespacedKey.minecraft(name));
+        super(new NamespacedKey(EnchantPlugin.getInstance(), name));
         this.name = name;
         this.coloredName = chatColor + name;
         this.maxLevel = maxLevel;

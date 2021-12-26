@@ -2,6 +2,7 @@ package com.mcaim.customenchants.gui;
 
 import com.mcaim.core.gui.Gui;
 import com.mcaim.core.item.ItemBuild;
+import com.mcaim.core.util.Util;
 import com.mcaim.customenchants.EnchantPlugin;
 import com.mcaim.customenchants.models.ICustomEnchant;
 import com.mcaim.customenchants.util.EnchantStorage;
@@ -37,8 +38,9 @@ public class AllEnchantsGui extends Gui {
         String[] lore = {
             "&f" + customEnchant.getDescription(),
             "",
+            "&7Rarity &8> &a&l" + Util.format(customEnchant.getEnchantTier().name()),
             "&7Maximum Tier &8> &a&l" + customEnchant.getMaxLevel(),
-            "&7Used on &8> &a&l" + customEnchant.getEnchantmentTarget().name()
+            "&7Used on &8> &a&l" + Util.format(customEnchant.getEnchantmentTarget().name())
         };
 
         return ItemBuild.of(material).name(name).flag(ItemFlag.HIDE_ATTRIBUTES).listLore(lore).build();
