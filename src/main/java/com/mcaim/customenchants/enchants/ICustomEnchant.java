@@ -1,4 +1,4 @@
-package com.mcaim.customenchants.models;
+package com.mcaim.customenchants.enchants;
 
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentTarget;

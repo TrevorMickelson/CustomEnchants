@@ -1,4 +1,4 @@
-package com.mcaim.customenchants.models;
+package com.mcaim.customenchants.enchants;
 
 import com.mcaim.customenchants.EnchantPlugin;
 import org.bukkit.ChatColor;

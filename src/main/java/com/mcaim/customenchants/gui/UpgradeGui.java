@@ -3,8 +3,8 @@ package com.mcaim.customenchants.gui;
 import com.mcaim.core.gui.Gui;
 import com.mcaim.core.item.ItemBuild;
 import com.mcaim.core.util.ChatPrefix;
-import com.mcaim.customenchants.models.CustomEnchantBuilder;
-import com.mcaim.customenchants.models.ICustomEnchant;
+import com.mcaim.customenchants.util.CustomEnchantBuilder;
+import com.mcaim.customenchants.enchants.ICustomEnchant;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -42,7 +42,7 @@ public class UpgradeGui extends Gui {
                     return;
                 }
 
-                CustomEnchantBuilder.of(inHand, customEnchant).upgradeCustomEnchant(currentTier);
+                CustomEnchantBuilder.of(inHand, customEnchant).upgradeCustomEnchant();
                 player.sendMessage(ChatPrefix.SUCCESS + "You have successfully upgraded the custom enchant: " + customEnchant.getColoredName());
 
                 if (!player.isOp())

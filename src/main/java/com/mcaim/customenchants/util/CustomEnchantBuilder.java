@@ -1,8 +1,10 @@
-package com.mcaim.customenchants.models;
+package com.mcaim.customenchants.util;
 
 import com.mcaim.core.item.ItemBuild;
 import com.mcaim.core.item.ItemUtil;
 import com.mcaim.core.util.Util;
+import com.mcaim.customenchants.enchants.ICustomEnchant;
+import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 
@@ -30,7 +32,11 @@ public class CustomEnchantBuilder {
 
     public void addCustomEnchant() {
         String lore = getCustomEnchantLoreName();
-        builder.enchant(customEnchant.getEnchantment(), currentTier).addLore(lore);
+        builder.enchant(customEnchant.getEnchantment(), currentTier);
+
+        // Not adding lore on enchanted books
+        if (builder.build().getType() != Material.ENCHANTED_BOOK)
+            builder.addLore(lore);
 
         if (!ItemUtil.hasUniqueKey(builder.build(), ENCHANT_KEY))
             builder.giveUniqueKey(ENCHANT_KEY);
@@ -46,7 +52,7 @@ public class CustomEnchantBuilder {
     }
 
     private String getCustomEnchantLoreName() {
-        String lore = customEnchant.getColoredName() + customEnchant.getName();
+        String lore = customEnchant.getColoredName();
         lore += currentTier > 1 ? " " + Util.intToRomanNumeral(currentTier) : "";
         return lore;
     }

@@ -1,15 +1,18 @@
 package com.mcaim.customenchants.util;
 
-import com.mcaim.customenchants.models.CustomEnchantTier;
-import com.mcaim.customenchants.models.ICustomEnchant;
+import com.mcaim.customenchants.enchants.CustomEnchantTier;
+import com.mcaim.customenchants.enchants.ICustomEnchant;
 
 import java.util.*;
 
 public final class EnchantStorage {
-    private final LinkedHashSet<ICustomEnchant> customEnchants = new LinkedHashSet<>();
+    private static final EnchantStorage instance = new EnchantStorage();
+    public static EnchantStorage getInstance() { return instance; }
+
+    private final LinkedHashMap<String, ICustomEnchant> customEnchants = new LinkedHashMap<>();
     private final Map<CustomEnchantTier, List<ICustomEnchant>> customEnchantTiers = new HashMap<>();
 
-    public void addCustomEnchantToTier(ICustomEnchant customEnchant, CustomEnchantTier tier) {
+    private void addCustomEnchantToTier(ICustomEnchant customEnchant, CustomEnchantTier tier) {
         List<ICustomEnchant> customEnchantList = getCustomEnchantsFromTier(tier);
         customEnchantList.add(customEnchant);
 
@@ -20,6 +23,11 @@ public final class EnchantStorage {
         }
     }
 
+    public void storeCustomEnchant(ICustomEnchant customEnchant) {
+        customEnchants.put(customEnchant.getName(), customEnchant);
+        addCustomEnchantToTier(customEnchant, customEnchant.getEnchantTier());
+    }
+
     public List<ICustomEnchant> getCustomEnchantsFromTier(CustomEnchantTier tier) {
         if (customEnchantTiers.containsKey(tier))
             return customEnchantTiers.get(tier);
@@ -27,5 +35,11 @@ public final class EnchantStorage {
         return new ArrayList<>();
     }
 
-    public HashSet<ICustomEnchant> getCustomEnchants() { return customEnchants; }
+    public ICustomEnchant getCustomEnchantFromName(String name) {
+        return customEnchants.get(name);
+    }
+
+    public List<ICustomEnchant> getAllCustomEnchants() {
+        return new ArrayList<>(customEnchants.values());
+    }
 }

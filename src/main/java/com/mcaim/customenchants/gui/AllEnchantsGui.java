@@ -3,8 +3,7 @@ package com.mcaim.customenchants.gui;
 import com.mcaim.core.gui.Gui;
 import com.mcaim.core.item.ItemBuild;
 import com.mcaim.core.util.Util;
-import com.mcaim.customenchants.EnchantPlugin;
-import com.mcaim.customenchants.models.ICustomEnchant;
+import com.mcaim.customenchants.enchants.ICustomEnchant;
 import com.mcaim.customenchants.util.EnchantStorage;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -19,10 +18,8 @@ public class AllEnchantsGui extends Gui {
     @Override
     public void init() {
         int inventoryIndex = 0;
-        EnchantStorage storage = EnchantPlugin.getInstance().getEnchantStorage();
 
-
-        for (ICustomEnchant customEnchant : storage.getCustomEnchants()) {
+        for (ICustomEnchant customEnchant : EnchantStorage.getInstance().getAllCustomEnchants()) {
             setItem(inventoryIndex, getGuiItemFromCustomEnchant(customEnchant));
             inventoryIndex++;
         }

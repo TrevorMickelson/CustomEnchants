@@ -1,9 +1,9 @@
-package com.mcaim.customenchants.models;
+package com.mcaim.customenchants.enchants;
 
 import org.bukkit.ChatColor;
 import org.bukkit.enchantments.EnchantmentTarget;
 
-public final class CustomEnchantments {
+public final class CustomEnchants {
     /**
      * --------------------------- ( ARMOR ) ---------------------------
      */
@@ -60,23 +60,11 @@ public final class CustomEnchantments {
             1, EnchantmentTarget.TOOL,
             "Gain ability to mine spawners", CustomEnchantTier.COMMON);
 
-    // UNCOMMON
-    public static final ICustomEnchant AUTO_SMELT = new CustomEnchantWrapper(
-            "AutoSmelt", ChatColor.LIGHT_PURPLE,
-            1, EnchantmentTarget.TOOL,
-            "Automatically smelts blocks", CustomEnchantTier.UNCOMMON);
-
     // RARE
     public static final ICustomEnchant AUTO_PICKUP = new CustomEnchantWrapper(
             "AutoPickup", ChatColor.GREEN,
             1, EnchantmentTarget.TOOL,
             "Automatically picks up blocks", CustomEnchantTier.RARE);
-
-    // VERY RARE
-    public static final ICustomEnchant TRENCH = new CustomEnchantWrapper(
-            "Trench", ChatColor.DARK_AQUA,
-            3, EnchantmentTarget.TOOL,
-            "Breaks more than 1 block at a time", CustomEnchantTier.VERY_RARE);
 
     public static final ICustomEnchant QUICK_SWITCH = new CustomEnchantWrapper(
             "QuickSwitch", ChatColor.RED,

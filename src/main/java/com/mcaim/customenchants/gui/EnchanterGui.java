@@ -4,10 +4,9 @@ import com.mcaim.core.gui.Gui;
 import com.mcaim.core.item.ItemBuild;
 import com.mcaim.core.util.ChatPrefix;
 import com.mcaim.core.util.PlayerUtil;
-import com.mcaim.customenchants.EnchantPlugin;
-import com.mcaim.customenchants.models.CustomEnchantBuilder;
-import com.mcaim.customenchants.models.CustomEnchantTier;
-import com.mcaim.customenchants.models.ICustomEnchant;
+import com.mcaim.customenchants.util.CustomEnchantBuilder;
+import com.mcaim.customenchants.enchants.CustomEnchantTier;
+import com.mcaim.customenchants.enchants.ICustomEnchant;
 import com.mcaim.customenchants.util.EnchantStorage;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -71,7 +70,7 @@ public class EnchanterGui extends Gui {
     }
 
     private List<String> getLoreFromCustomEnchantTier(CustomEnchantTier tier) {
-        EnchantStorage storage = EnchantPlugin.getInstance().getEnchantStorage();
+        EnchantStorage storage = EnchantStorage.getInstance();
 
         List<ICustomEnchant> customEnchantsList = storage.getCustomEnchantsFromTier(tier);
         List<String> lore = new ArrayList<>();
@@ -90,7 +89,7 @@ public class EnchanterGui extends Gui {
 
     private List<ICustomEnchant> getPlayersCustomEnchantsFromTier(CustomEnchantTier enchantTier) {
         List<ICustomEnchant> customEnchantList = new ArrayList<>();
-        EnchantStorage storage = EnchantPlugin.getInstance().getEnchantStorage();
+        EnchantStorage storage = EnchantStorage.getInstance();
 
         for (ICustomEnchant customEnchant : storage.getCustomEnchantsFromTier(enchantTier)) {
             if (player.hasPermission(customEnchant.getPermission()))
@@ -110,7 +109,7 @@ public class EnchanterGui extends Gui {
     }
 
     private ItemStack getCustomEnchantBookItemStack(ICustomEnchant customEnchant) {
-        String name = customEnchant.getName();
+        String name = customEnchant.getColoredName();
         Material type = Material.ENCHANTED_BOOK;
 
         ItemStack enchantedBook = ItemBuild.of(type).name(name).lore("&7&oDrag over desired item").build();

@@ -1,9 +1,7 @@
 package com.mcaim.customenchants.util;
 
-import com.mcaim.customenchants.EnchantPlugin;
-import com.mcaim.customenchants.models.CustomEnchantTier;
-import com.mcaim.customenchants.models.CustomEnchantments;
-import com.mcaim.customenchants.models.ICustomEnchant;
+import com.mcaim.customenchants.enchants.CustomEnchants;
+import com.mcaim.customenchants.enchants.ICustomEnchant;
 import org.bukkit.enchantments.Enchantment;
 
 import java.lang.reflect.Field;
@@ -12,7 +10,7 @@ import java.util.Arrays;
 
 public final class EnchantRegistry {
     public static void registerAllCustomEnchants() {
-        Field[] constants = CustomEnchantments.class.getFields();
+        Field[] constants = CustomEnchants.class.getFields();
 
         for (Field field : constants) {
             if (!Modifier.isStatic(field.getModifiers())) continue;
@@ -29,14 +27,8 @@ public final class EnchantRegistry {
     }
 
     private static void registerCustomEnchant(ICustomEnchant customEnchant) {
-        registerStorage(customEnchant, customEnchant.getEnchantTier());
+        EnchantStorage.getInstance().storeCustomEnchant(customEnchant);
         registerThroughMinecraft(customEnchant);
-    }
-
-    private static void registerStorage(ICustomEnchant customEnchant, CustomEnchantTier tier) {
-        EnchantStorage storage = EnchantPlugin.getPlugin(EnchantPlugin.class).getEnchantStorage();
-        storage.getCustomEnchants().add(customEnchant);
-        storage.addCustomEnchantToTier(customEnchant, tier);
     }
 
     private static void registerThroughMinecraft(ICustomEnchant customEnchant) {

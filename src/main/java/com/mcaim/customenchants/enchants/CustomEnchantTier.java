@@ -1,4 +1,4 @@
-package com.mcaim.customenchants.models;
+package com.mcaim.customenchants.enchants;
 
 public enum CustomEnchantTier {
     COMMON("&f&lCOMMON", 15),

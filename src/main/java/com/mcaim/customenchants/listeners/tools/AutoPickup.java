@@ -1,32 +1,29 @@
 package com.mcaim.customenchants.listeners.tools;
 
 import com.mcaim.core.util.PlayerUtil;
-import com.mcaim.customenchants.models.CustomEnchantments;
-import com.mcaim.customenchants.models.ICustomEnchant;
-import org.bukkit.block.Block;
+import com.mcaim.customenchants.enchants.CustomEnchants;
+import com.mcaim.customenchants.listeners.CustomEnchantListener;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Collection;
 
-public final class AutoPickup extends ToolCustomEnchantListener {
-    @Override
-    public ICustomEnchant getCustomEnchant() {
-        return CustomEnchantments.AUTO_PICKUP;
+public final class AutoPickup extends CustomEnchantListener {
+    public AutoPickup() {
+        super(CustomEnchants.AUTO_PICKUP);
     }
 
-    @Override
-    public <T extends Event> void run(T bukkitEvent) {
-        BlockBreakEvent event = (BlockBreakEvent) bukkitEvent;
-
+    @EventHandler
+    public void onBreak(BlockBreakEvent event) {
         Player player = event.getPlayer();
-        ItemStack inHand = player.getInventory().getItemInMainHand();
-        Block block = event.getBlock();
 
-        Collection<ItemStack> items = block.getDrops(inHand);
+        if (!canUseCustomEnchant(player)) return;
+
         event.setDropItems(false);
-        items.forEach((item) -> { PlayerUtil.giveItem(player, item);});
+        ItemStack inHand = player.getInventory().getItemInMainHand();
+        Collection<ItemStack> items = event.getBlock().getDrops(inHand);
+        items.forEach((item) -> { PlayerUtil.giveItem(player, item); });
     }
 }
