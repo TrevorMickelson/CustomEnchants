@@ -5,6 +5,8 @@ import com.mcaim.core.command.QuickCommand;
 import com.mcaim.customenchants.gui.MainMenuGui;
 import com.mcaim.customenchants.listeners.BookApplyListener;
 import com.mcaim.customenchants.listeners.armor.*;
+import com.mcaim.customenchants.listeners.tools.AutoPickup;
+import com.mcaim.customenchants.listeners.tools.QuickSwitch;
 import com.mcaim.customenchants.util.EnchantRegistry;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
@@ -45,6 +47,10 @@ public class EnchantPlugin extends JavaPlugin {
         pm.registerEvents(new Stomper(), this);
         pm.registerEvents(new Jump(), this);
         pm.registerEvents(new NightVision(), this);
+
+        // Tools
+        pm.registerEvents(new QuickSwitch(), this);
+        pm.registerEvents(new AutoPickup(), this);
     }
 
     public static EnchantPlugin getInstance() { return plugin; }

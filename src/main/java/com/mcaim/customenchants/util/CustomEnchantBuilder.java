@@ -8,6 +8,7 @@ import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 
+//TODO: Upgrading adds new lore lines everytime (It should be replacing them)
 public class CustomEnchantBuilder {
     private static final String ENCHANT_KEY = "CustomEnchant";
 

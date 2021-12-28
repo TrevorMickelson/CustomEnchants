@@ -5,6 +5,7 @@ import com.mcaim.core.item.ItemBuild;
 import com.mcaim.core.util.ChatPrefix;
 import com.mcaim.customenchants.util.CustomEnchantBuilder;
 import com.mcaim.customenchants.enchants.ICustomEnchant;
+import com.mcaim.customenchants.util.EnchantStorage;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -60,10 +61,13 @@ public class UpgradeGui extends Gui {
 
     private List<ICustomEnchant> getCustomEnchantsFromItemStack(ItemStack item) {
         List<ICustomEnchant> customEnchantList = new ArrayList<>();
+        EnchantStorage storage = EnchantStorage.getInstance();
 
         for (Enchantment enchantment : item.getEnchantments().keySet()) {
-            if (enchantment instanceof ICustomEnchant)
-                customEnchantList.add((ICustomEnchant) enchantment);
+            ICustomEnchant customEnchant = storage.getCustomEnchantFromName(enchantment.getName());
+
+            if (customEnchant != null)
+                customEnchantList.add(customEnchant);
         }
 
         return customEnchantList;

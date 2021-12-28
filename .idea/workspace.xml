@@ -10,32 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6500954c-d515-42dc-a3f9-318eff643fd2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/ArmorPotionCustomEnchant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/BookApplyListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/CustomEnchantListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/armor/Flight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/armor/Jump.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/armor/NightVision.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/armor/NoHunger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/armor/Stomper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/SpawnerMiner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/AutoSmelt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/QuickSwitch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/EnchantPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/EnchantPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/AllEnchantsGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/AllEnchantsGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/EnchanterGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/EnchanterGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/MainMenuGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/MainMenuGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/enchants/CustomEnchants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/enchants/CustomEnchants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/UpgradeGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/UpgradeGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/AutoPickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/AutoPickup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/CustomEnchantListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/ToolCustomEnchantListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/CustomEnchantBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/CustomEnchantBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/CustomEnchantTier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/enchants/CustomEnchantTier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/CustomEnchantWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/enchants/CustomEnchantWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/CustomEnchantments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/enchants/CustomEnchants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/models/ICustomEnchant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/enchants/ICustomEnchant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantRegistry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantUsage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/CustomEnchantListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/CustomEnchantListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/CustomEnchantBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/CustomEnchantBuilder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640485149395</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added more stuff, (plugin is not finished)">
+      <created>1640703401969</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1640703401969</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

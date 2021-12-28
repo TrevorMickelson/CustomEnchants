@@ -1,5 +1,6 @@
 package com.mcaim.customenchants.listeners;
 
+import com.mcaim.core.util.ChatPrefix;
 import com.mcaim.customenchants.enchants.ICustomEnchant;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
@@ -20,7 +21,16 @@ public class CustomEnchantListener implements Listener {
     protected boolean canUseCustomEnchant(Player player, ItemStack itemStack) {
         if (itemStack == null) return false;
 
-        return hasCustomEnchantAccess(player) && hasCustomEnchant(itemStack);
+        if (itemStack.getEnchantments().isEmpty()) return false;
+
+        if (!hasCustomEnchant(itemStack)) return false;
+
+        if (!hasCustomEnchantAccess(player)) {
+            player.sendMessage(ChatPrefix.FAIL + "You don't have the ability to use this CustomEnchant");
+            return false;
+        }
+
+        return true;
     }
 
     /**
