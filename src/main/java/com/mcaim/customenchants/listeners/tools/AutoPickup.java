@@ -1,5 +1,6 @@
 package com.mcaim.customenchants.listeners.tools;
 
+import com.mcaim.core.item.ItemUtil;
 import com.mcaim.core.util.PlayerUtil;
 import com.mcaim.customenchants.enchants.CustomEnchants;
 import com.mcaim.customenchants.listeners.CustomEnchantListener;
@@ -26,7 +27,7 @@ public final class AutoPickup extends CustomEnchantListener {
         Block block = event.getBlock();
 
         // Auto-smelt support
-        if (isUsingAutoSmelt(inHand)) return;
+        if (isUsingAutoSmelt(inHand) && isSmeltAble(block)) return;
 
         event.setDropItems(false);
         Collection<ItemStack> items = block.getDrops(inHand);
@@ -35,5 +36,9 @@ public final class AutoPickup extends CustomEnchantListener {
 
     private boolean isUsingAutoSmelt(ItemStack itemStack) {
         return itemStack.containsEnchantment(CustomEnchants.AUTO_SMELT.getEnchantment());
+    }
+
+    private boolean isSmeltAble(Block block) {
+        return ItemUtil.getFurnaceSmeltResult(block.getType()) != null;
     }
 }
