@@ -17,6 +17,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 public class EnchanterGui extends Gui {
     private static final int FIRST_INVENTORY_SLOT = 10;
@@ -72,7 +73,7 @@ public class EnchanterGui extends Gui {
     private List<String> getLoreFromCustomEnchantTier(CustomEnchantTier tier) {
         EnchantStorage storage = EnchantStorage.getInstance();
 
-        List<ICustomEnchant> customEnchantsList = storage.getCustomEnchantsFromTier(tier);
+        Set<ICustomEnchant> customEnchantsList = storage.getCustomEnchantsFromTier(tier);
         List<String> lore = new ArrayList<>();
 
         for (ICustomEnchant customEnchant : customEnchantsList) {

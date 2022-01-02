@@ -6,12 +6,14 @@ import com.mcaim.customenchants.gui.MainMenuGui;
 import com.mcaim.customenchants.listeners.BookApplyListener;
 import com.mcaim.customenchants.listeners.armor.*;
 import com.mcaim.customenchants.listeners.tools.AutoPickup;
+import com.mcaim.customenchants.listeners.tools.AutoSmelt;
 import com.mcaim.customenchants.listeners.tools.QuickSwitch;
 import com.mcaim.customenchants.util.EnchantRegistry;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+//TODO: Make sure custom enchants can't be used in protected areas (Example -> SPAWN)
 public class EnchantPlugin extends JavaPlugin {
     private static EnchantPlugin plugin;
 
@@ -51,6 +53,7 @@ public class EnchantPlugin extends JavaPlugin {
         // Tools
         pm.registerEvents(new QuickSwitch(), this);
         pm.registerEvents(new AutoPickup(), this);
+        pm.registerEvents(new AutoSmelt(), this);
     }
 
     public static EnchantPlugin getInstance() { return plugin; }

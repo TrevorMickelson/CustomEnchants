@@ -10,14 +10,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6500954c-d515-42dc-a3f9-318eff643fd2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/AutoSmelt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/QuickSwitch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/ToolCustomEnchant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/ToolListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/EnchantPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/EnchantPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/enchants/CustomEnchants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/enchants/CustomEnchants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/EnchanterGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/EnchanterGui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/UpgradeGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/UpgradeGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/CustomEnchantListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/CustomEnchantListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/CustomEnchantBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/CustomEnchantBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/ArmorPotionCustomEnchant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/ArmorPotionCustomEnchant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/CustomEnchantListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/CustomEnchantAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/armor/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/armor/Flight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/armor/NoHunger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/armor/NoHunger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/armor/Stomper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/armor/Stomper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/AutoPickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/AutoPickup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/AutoSmelt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/AutoSmelt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/QuickSwitch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/QuickSwitch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/SpawnerMiner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/SpawnerMiner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantStorage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640703401969</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added QuickSwitch custom enchantment">
+      <created>1640725112392</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1640725112392</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -123,6 +138,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Rebuilt structure of custom enchants, still need to fix a bug, and implement the custom enchant listeners" />
     <MESSAGE value="Added more stuff, (plugin is not finished)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more stuff, (plugin is not finished)" />
+    <MESSAGE value="Added QuickSwitch custom enchantment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added QuickSwitch custom enchantment" />
   </component>
 </project>

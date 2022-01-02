@@ -12,8 +12,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class UpgradeGui extends Gui {
     public UpgradeGui(Player player) {
@@ -59,8 +58,8 @@ public class UpgradeGui extends Gui {
         fillBackGround();
     }
 
-    private List<ICustomEnchant> getCustomEnchantsFromItemStack(ItemStack item) {
-        List<ICustomEnchant> customEnchantList = new ArrayList<>();
+    private Iterable<ICustomEnchant> getCustomEnchantsFromItemStack(ItemStack item) {
+        Collection<ICustomEnchant> customEnchantList = new LinkedList<>();
         EnchantStorage storage = EnchantStorage.getInstance();
 
         for (Enchantment enchantment : item.getEnchantments().keySet()) {
