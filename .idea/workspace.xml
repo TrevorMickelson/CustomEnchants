@@ -10,15 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6500954c-d515-42dc-a3f9-318eff643fd2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/EnchantUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/AllEnchantsGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/AllEnchantsGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/EnchanterGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/EnchanterGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/GuiUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/RemoveEnchantGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/RemoveEnchantGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/UpgradeGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/gui/UpgradeGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/BookApplyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/BookApplyListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/CustomEnchantBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/CustomEnchantBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/weapons/HealthDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/weapons/HealthDisplay.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641445800622</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="* Refactored Builder class&#10;* Implemented EnchantUtil class&#10;* Removed GuiUtil class">
+      <created>1641508064870</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1641508064870</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -156,6 +156,7 @@
     <MESSAGE value="Added Auto-Smelt, and made it functional with Auto-Pickup" />
     <MESSAGE value="Fixed issue with auto-smelt support" />
     <MESSAGE value="Heavily updated -&gt; Added new CustomEnchants" />
-    <option name="LAST_COMMIT_MESSAGE" value="Heavily updated -&gt; Added new CustomEnchants" />
+    <MESSAGE value="* Refactored Builder class&#10;* Implemented EnchantUtil class&#10;* Removed GuiUtil class" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Refactored Builder class&#10;* Implemented EnchantUtil class&#10;* Removed GuiUtil class" />
   </component>
 </project>

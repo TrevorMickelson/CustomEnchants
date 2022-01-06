@@ -12,11 +12,6 @@ import org.bukkit.entity.Player;
 import java.util.Objects;
 
 public class HealthDisplay extends WeaponEventListener {
-    private static final String HEALTH_SYMBOL = "❤";
-    private static final ChatColor NO_HEALTH_COLOR = ChatColor.GRAY;
-    private static final ChatColor HEALTH_COLOR = ChatColor.GREEN;
-    private static final byte MINIMUM_HEALTH = 0;
-
     public HealthDisplay() {
         super(CustomEnchants.HEALTH_DISPLAY);
     }
@@ -40,13 +35,18 @@ public class HealthDisplay extends WeaponEventListener {
     }
 
     private String getAttackedEntityHealthIndicator(LivingEntity attackedEntity, double damageDealt) {
+        String HEALTH_SYMBOL = "❤";
+        ChatColor NO_HEALTH_COLOR = ChatColor.GRAY;
+        ChatColor HEALTH_COLOR = ChatColor.GREEN;
+        byte MIN_HEALTH = 0;
+        double MAX_HEALTH = formatHealth(getMaxHealth(attackedEntity));
+
         double currentHealth = attackedEntity.getHealth();
         double newHealthAfterHit = formatHealth(currentHealth - damageDealt);
-        double MAX_HEALTH = formatHealth(getMaxHealth(attackedEntity));
 
         StringBuilder healthIndicator = new StringBuilder();
 
-        for (byte healthCounter = MINIMUM_HEALTH; healthCounter <= MAX_HEALTH; healthCounter++) {
+        for (byte healthCounter = MIN_HEALTH; healthCounter <= MAX_HEALTH; healthCounter++) {
             if (healthCounter <= newHealthAfterHit) {
                 healthIndicator.append(HEALTH_COLOR);
             } else {
