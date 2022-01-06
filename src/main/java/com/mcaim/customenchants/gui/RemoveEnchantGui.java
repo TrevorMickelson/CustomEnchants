@@ -5,6 +5,7 @@ import com.mcaim.core.item.ItemBuild;
 import com.mcaim.core.util.ChatPrefix;
 import com.mcaim.customenchants.enchants.ICustomEnchant;
 import com.mcaim.customenchants.util.CustomEnchantBuilder;
+import com.mcaim.customenchants.util.EnchantUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -20,7 +21,7 @@ public class RemoveEnchantGui extends Gui {
         ItemStack inHand = player.getInventory().getItemInMainHand();
         int inventoryIndex = 0;
 
-        for (ICustomEnchant customEnchant : GuiUtil.getCustomEnchantsFromItemStack(inHand)) {
+        for (ICustomEnchant customEnchant : EnchantUtil.getCustomEnchantsFromItemStack(inHand)) {
             ItemStack enchantedBook = ItemBuild
                     .of(Material.ENCHANTED_BOOK)
                     .name(customEnchant.getColoredName())
@@ -28,8 +29,8 @@ public class RemoveEnchantGui extends Gui {
                     .build();
 
             setItem(inventoryIndex, enchantedBook, (player) -> {
-                CustomEnchantBuilder.of(inHand, customEnchant).removeCustomEnchant();
-                GuiUtil.givePlayerCustomEnchantBook(player, customEnchant);
+                CustomEnchantBuilder.of(inHand).removeCustomEnchant(customEnchant);
+                EnchantUtil.givePlayerCustomEnchantBook(player, customEnchant);
 
                 // Re-opening to "refresh" the gui
                 new RemoveEnchantGui(player).open();

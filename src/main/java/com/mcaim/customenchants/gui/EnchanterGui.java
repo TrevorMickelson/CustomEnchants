@@ -6,6 +6,7 @@ import com.mcaim.core.util.ChatPrefix;
 import com.mcaim.customenchants.enchants.CustomEnchantTier;
 import com.mcaim.customenchants.enchants.ICustomEnchant;
 import com.mcaim.customenchants.util.EnchantStorage;
+import com.mcaim.customenchants.util.EnchantUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -51,7 +52,7 @@ public class EnchanterGui extends Gui {
                     player.setLevel(level - cost);
 
                 player.sendMessage(ChatPrefix.SUCCESS + "Custom enchant " + randomEnchant.getName() + "" + ChatColor.GRAY + " successfully purchased!");
-                GuiUtil.givePlayerCustomEnchantBook(player, randomEnchant);
+                EnchantUtil.givePlayerCustomEnchantBook(player, randomEnchant);
             });
 
             inventoryIndex += INVENTORY_SLOT_INCREMENT;

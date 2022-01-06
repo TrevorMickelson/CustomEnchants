@@ -5,64 +5,62 @@ import com.mcaim.core.item.ItemUtil;
 import com.mcaim.core.util.Util;
 import com.mcaim.customenchants.enchants.ICustomEnchant;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 
-//TODO: Upgrading adds new lore lines everytime (It should be replacing them)
-//TODO: Fix this garbage class (re-factor it) it works, but it's a bit gross
-public class CustomEnchantBuilder {
-    private static final String ENCHANT_KEY = "CustomEnchant";
-
+public final class CustomEnchantBuilder {
     private final ItemBuild builder;
-    private final ICustomEnchant customEnchant;
-    private int currentTier;
 
-    public CustomEnchantBuilder(ItemStack itemStack, ICustomEnchant customEnchant) {
+    public CustomEnchantBuilder(ItemStack itemStack) {
         this.builder = new ItemBuild(itemStack);
-        this.customEnchant = customEnchant;
+    }
 
-        Enchantment enchantment = customEnchant.getEnchantment();
+    public void addCustomEnchant(ICustomEnchant customEnchant, int tier) {
+        String lore = getCustomEnchantLoreName(customEnchant);
+        builder.enchant(customEnchant.getEnchantment(), tier);
 
-        // If the enchantment is already on the item, setting
-        // tier to the actual tier on the item, otherwise defaulting to 1
-        if (itemStack.containsEnchantment(enchantment)) {
-            currentTier = itemStack.getEnchantments().get(enchantment);
-        } else {
-            currentTier = 1;
+        // Not adding lore on enchanted books
+        if (builder.build().getType() != Material.ENCHANTED_BOOK) {
+            builder.addLore(lore);
+            addUniqueKey(customEnchant);
         }
     }
 
-    public void addCustomEnchant() {
-        String lore = getCustomEnchantLoreName();
-        builder.enchant(customEnchant.getEnchantment(), currentTier);
-
-        // Not adding lore on enchanted books
-        if (builder.build().getType() != Material.ENCHANTED_BOOK)
-            builder.addLore(lore);
-
-        if (!ItemUtil.hasUniqueKey(builder.build(), ENCHANT_KEY))
-            builder.giveUniqueKey(ENCHANT_KEY);
+    public void upgradeCustomEnchant(ICustomEnchant customEnchant) {
+        int newTier = getCurrentTier(customEnchant) + 1;
+        removeCustomEnchant(customEnchant);
+        addCustomEnchant(customEnchant, newTier);
     }
 
-    public void upgradeCustomEnchant() {
-        removeCustomEnchant();
-        currentTier += 1;
-        addCustomEnchant();
-    }
-
-    public void removeCustomEnchant() {
-        String lore = getCustomEnchantLoreName();
+    public void removeCustomEnchant(ICustomEnchant customEnchant) {
+        String lore = getCustomEnchantLoreName(customEnchant);
         builder.removeLore(lore);
         builder.removeEnchant(customEnchant.getEnchantment());
     }
 
-    private String getCustomEnchantLoreName() {
+    private void addUniqueKey(ICustomEnchant customEnchant) {
+        String key = customEnchant.getName();
+        ItemStack item = getItem();
+
+        if (!ItemUtil.hasUniqueKey(item, key))
+            builder.giveUniqueKey(key);
+    }
+
+    private String getCustomEnchantLoreName(ICustomEnchant customEnchant) {
+        int currentTier = getCurrentTier(customEnchant);
         String lore = customEnchant.getColoredName();
         lore += currentTier > 1 ? " " + Util.intToRomanNumeral(currentTier) : "";
         return lore;
     }
 
-    public static CustomEnchantBuilder of(ItemStack itemStack, ICustomEnchant customEnchant) {
-        return new CustomEnchantBuilder(itemStack, customEnchant);
+    private int getCurrentTier(ICustomEnchant customEnchant) {
+        return getItem().getEnchantmentLevel(customEnchant.getEnchantment());
+    }
+
+    private ItemStack getItem() {
+        return builder.build();
+    }
+
+    public static CustomEnchantBuilder of(ItemStack itemStack) {
+        return new CustomEnchantBuilder(itemStack);
     }
 }

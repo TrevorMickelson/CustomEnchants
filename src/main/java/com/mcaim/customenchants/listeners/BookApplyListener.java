@@ -26,10 +26,15 @@ public class BookApplyListener implements Listener {
 
         if (!bothItemsExist) return;
 
-        if (!isCursorHoldingCustomBook(cursor)) return;
+        if (!isCursorHoldingBook(cursor)) return;
+
+        ICustomEnchant customEnchant = getCustomEnchantFromCursor(cursor);
+
+        if (customEnchant == null) return;
+
+        if (!cursorContainsCustomEnchant(cursor, customEnchant)) return;
 
         Player player = (Player) event.getWhoClicked();
-        ICustomEnchant customEnchant = Objects.requireNonNull(getCustomEnchantFromBook(cursor));
         boolean canAddCustomEnchantToItem = customEnchant.getEnchantmentTarget().includes(clickedItem) &&
                                             !clickedItem.getEnchantments().containsKey(customEnchant.getEnchantment());
 
@@ -38,22 +43,21 @@ public class BookApplyListener implements Listener {
             return;
         }
 
-        CustomEnchantBuilder.of(clickedItem, customEnchant).addCustomEnchant();
+        CustomEnchantBuilder.of(clickedItem).addCustomEnchant(customEnchant, 1);
         cursor.setAmount(0);
         player.sendMessage(ChatPrefix.SUCCESS + "Custom enchant " + customEnchant.getColoredName() + Util.trans(" &7successfully added!"));
         player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 1.0f);
     }
 
-    private boolean isCursorHoldingCustomBook(ItemStack cursor) {
-        Material type = cursor.getType();
-
-        if (type != Material.ENCHANTED_BOOK)
-            return false;
-
-        return ItemUtil.hasUniqueKey(cursor, "CustomEnchant");
+    private boolean isCursorHoldingBook(ItemStack cursor) {
+        return cursor.getType() == Material.ENCHANTED_BOOK;
     }
 
-    private ICustomEnchant getCustomEnchantFromBook(ItemStack book) {
+    private boolean cursorContainsCustomEnchant(ItemStack cursor, ICustomEnchant customEnchant) {
+        return ItemUtil.hasUniqueKey(cursor, customEnchant.getName());
+    }
+
+    private ICustomEnchant getCustomEnchantFromCursor(ItemStack book) {
         EnchantStorage storage = EnchantStorage.getInstance();
 
         for (Enchantment enchantment : book.getEnchantments().keySet()) {

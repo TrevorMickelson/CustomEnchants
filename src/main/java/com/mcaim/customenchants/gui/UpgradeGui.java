@@ -6,6 +6,7 @@ import com.mcaim.core.util.ChatPrefix;
 import com.mcaim.customenchants.util.CustomEnchantBuilder;
 import com.mcaim.customenchants.enchants.ICustomEnchant;
 import com.mcaim.customenchants.util.EnchantStorage;
+import com.mcaim.customenchants.util.EnchantUtil;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -24,7 +25,7 @@ public class UpgradeGui extends Gui {
         ItemStack inHand = player.getInventory().getItemInMainHand();
         int index = 0;
 
-        for (ICustomEnchant customEnchant : GuiUtil.getCustomEnchantsFromItemStack(inHand)) {
+        for (ICustomEnchant customEnchant : EnchantUtil.getCustomEnchantsFromItemStack(inHand)) {
             int currentTier = inHand.getEnchantments().get(customEnchant.getEnchantment());
             ItemStack guiItem = getGuiItemFromCustomEnchant(currentTier, customEnchant);
 
@@ -34,7 +35,7 @@ public class UpgradeGui extends Gui {
                     return;
                 }
 
-                CustomEnchantBuilder.of(inHand, customEnchant).upgradeCustomEnchant();
+                CustomEnchantBuilder.of(inHand).upgradeCustomEnchant(customEnchant);
                 player.sendMessage(ChatPrefix.SUCCESS + "You have successfully upgraded the custom enchant: " + customEnchant.getColoredName());
 
                 // Refreshing

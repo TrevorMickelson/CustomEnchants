@@ -5,6 +5,7 @@ import com.mcaim.core.item.ItemBuild;
 import com.mcaim.core.util.Util;
 import com.mcaim.customenchants.enchants.ICustomEnchant;
 import com.mcaim.customenchants.util.EnchantStorage;
+import com.mcaim.customenchants.util.EnchantUtil;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
@@ -23,7 +24,7 @@ public class AllEnchantsGui extends Gui {
             setItem(inventoryIndex, getGuiItemFromCustomEnchant(customEnchant), (p) -> {
                 if (!player.isOp()) return;
 
-                GuiUtil.givePlayerCustomEnchantBook(player, customEnchant);
+                EnchantUtil.givePlayerCustomEnchantBook(player, customEnchant);
             });
             inventoryIndex++;
         }
