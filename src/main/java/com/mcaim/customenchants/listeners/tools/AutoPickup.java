@@ -3,7 +3,7 @@ package com.mcaim.customenchants.listeners.tools;
 import com.mcaim.core.item.ItemUtil;
 import com.mcaim.core.util.PlayerUtil;
 import com.mcaim.customenchants.enchants.CustomEnchants;
-import com.mcaim.customenchants.listeners.CustomEnchantListener;
+import com.mcaim.customenchants.listeners.helpers.CustomEnchantListener;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

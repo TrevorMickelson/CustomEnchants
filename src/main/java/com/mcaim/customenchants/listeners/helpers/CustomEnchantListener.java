@@ -1,4 +1,4 @@
-package com.mcaim.customenchants.listeners;
+package com.mcaim.customenchants.listeners.helpers;
 
 import com.mcaim.core.util.ChatPrefix;
 import com.mcaim.customenchants.enchants.ICustomEnchant;
@@ -39,6 +39,22 @@ public class CustomEnchantListener implements Listener {
      */
     protected int getCurrentTier(ItemStack itemStack) {
         return itemStack.getEnchantmentLevel(customEnchant.getEnchantment());
+    }
+
+    protected int getCurrentTier(Player player) {
+        return getCurrentTier(getItemStackFromPlayer(player));
+    }
+
+    /**
+     * Random chance is based on the tier of the
+     * weapon being used, I.E the higher the tier,
+     * the more likely this will be true
+     *
+     * Tier 1 = 10%
+     * Tier 2 = 20% and so on
+     */
+    protected boolean randomChanceSuccessfullyReached(int currentTier) {
+        return (int) (100 * Math.random()) < (currentTier * 10);
     }
 
     private boolean hasCustomEnchantAccess(Player player) {

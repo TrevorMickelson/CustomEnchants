@@ -24,9 +24,8 @@ public class UpgradeGui extends Gui {
         ItemStack inHand = player.getInventory().getItemInMainHand();
         int index = 0;
 
-        for (ICustomEnchant customEnchant : getCustomEnchantsFromItemStack(inHand)) {
-            int currentTier = inHand.getEnchantmentLevel(customEnchant.getEnchantment());
-            int upgradeCost = getUpgradeCost(currentTier);
+        for (ICustomEnchant customEnchant : GuiUtil.getCustomEnchantsFromItemStack(inHand)) {
+            int currentTier = inHand.getEnchantments().get(customEnchant.getEnchantment());
             ItemStack guiItem = getGuiItemFromCustomEnchant(currentTier, customEnchant);
 
             setItem(index, guiItem, (player) -> {
@@ -35,19 +34,10 @@ public class UpgradeGui extends Gui {
                     return;
                 }
 
-                boolean hasEnoughXP = player.getLevel() >= upgradeCost || player.isOp();
-
-                if (!hasEnoughXP) {
-                    player.sendMessage(ChatPrefix.FAIL + "You don't have enough XP to upgrade!");
-                    return;
-                }
-
                 CustomEnchantBuilder.of(inHand, customEnchant).upgradeCustomEnchant();
                 player.sendMessage(ChatPrefix.SUCCESS + "You have successfully upgraded the custom enchant: " + customEnchant.getColoredName());
 
-                if (!player.isOp())
-                    player.setLevel(player.getLevel() - upgradeCost);
-
+                // Refreshing
                 new UpgradeGui(player).open();
             });
 
@@ -56,20 +46,6 @@ public class UpgradeGui extends Gui {
 
         setBackButton(new MainMenuGui(player));
         fillBackGround();
-    }
-
-    private Iterable<ICustomEnchant> getCustomEnchantsFromItemStack(ItemStack item) {
-        Collection<ICustomEnchant> customEnchantList = new LinkedList<>();
-        EnchantStorage storage = EnchantStorage.getInstance();
-
-        for (Enchantment enchantment : item.getEnchantments().keySet()) {
-            ICustomEnchant customEnchant = storage.getCustomEnchantFromName(enchantment.getName());
-
-            if (customEnchant != null)
-                customEnchantList.add(customEnchant);
-        }
-
-        return customEnchantList;
     }
 
     private ItemStack getGuiItemFromCustomEnchant(int currentTier, ICustomEnchant customEnchant) {
@@ -88,8 +64,6 @@ public class UpgradeGui extends Gui {
             lore.add("&7Current Tier: &f" + currentTier);
             lore.add("&7Next Tier: &f" + nextTier);
             lore.add("&7Max Tier: &f" + maxTier);
-            lore.add("");
-            lore.add("&7Upgrade XP cost: &e" + getUpgradeCost(currentTier));
         }
 
         return ItemBuild.of(type).name(name).lore(lore).flag(ItemFlag.HIDE_ATTRIBUTES).build();
@@ -98,9 +72,5 @@ public class UpgradeGui extends Gui {
     private boolean isFullyUpgraded(int currentTier, ICustomEnchant customEnchant) {
         int maxTier = customEnchant.getMaxLevel();
         return currentTier >= maxTier;
-    }
-
-    private int getUpgradeCost(int currentTier) {
-        return currentTier * 15;
     }
 }

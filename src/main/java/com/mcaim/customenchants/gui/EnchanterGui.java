@@ -3,8 +3,6 @@ package com.mcaim.customenchants.gui;
 import com.mcaim.core.gui.Gui;
 import com.mcaim.core.item.ItemBuild;
 import com.mcaim.core.util.ChatPrefix;
-import com.mcaim.core.util.PlayerUtil;
-import com.mcaim.customenchants.util.CustomEnchantBuilder;
 import com.mcaim.customenchants.enchants.CustomEnchantTier;
 import com.mcaim.customenchants.enchants.ICustomEnchant;
 import com.mcaim.customenchants.util.EnchantStorage;
@@ -53,7 +51,7 @@ public class EnchanterGui extends Gui {
                     player.setLevel(level - cost);
 
                 player.sendMessage(ChatPrefix.SUCCESS + "Custom enchant " + randomEnchant.getName() + "" + ChatColor.GRAY + " successfully purchased!");
-                PlayerUtil.giveItem(player, getCustomEnchantBookItemStack(randomEnchant));
+                GuiUtil.givePlayerCustomEnchantBook(player, randomEnchant);
             });
 
             inventoryIndex += INVENTORY_SLOT_INCREMENT;
@@ -107,14 +105,5 @@ public class EnchanterGui extends Gui {
 
         int randomIndex = new Random().nextInt(playersCustomEnchants.size());
         return playersCustomEnchants.get(randomIndex);
-    }
-
-    private ItemStack getCustomEnchantBookItemStack(ICustomEnchant customEnchant) {
-        String name = customEnchant.getColoredName();
-        Material type = Material.ENCHANTED_BOOK;
-
-        ItemStack enchantedBook = ItemBuild.of(type).name(name).lore("&7&oDrag over desired item").build();
-        CustomEnchantBuilder.of(enchantedBook, customEnchant).addCustomEnchant();
-        return enchantedBook;
     }
 }

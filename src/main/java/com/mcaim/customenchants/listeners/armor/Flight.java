@@ -3,7 +3,7 @@ package com.mcaim.customenchants.listeners.armor;
 import com.mcaim.core.events.ArmorEquipEvent;
 import com.mcaim.core.events.ArmorRemoveEvent;
 import com.mcaim.customenchants.enchants.CustomEnchants;
-import com.mcaim.customenchants.listeners.CustomEnchantListener;
+import com.mcaim.customenchants.listeners.helpers.CustomEnchantListener;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 

@@ -3,7 +3,7 @@ package com.mcaim.customenchants.listeners.tools;
 import com.mcaim.core.util.Util;
 import com.mcaim.customenchants.EnchantPlugin;
 import com.mcaim.customenchants.enchants.CustomEnchants;
-import com.mcaim.customenchants.listeners.CustomEnchantListener;
+import com.mcaim.customenchants.listeners.helpers.CustomEnchantListener;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
@@ -15,6 +15,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BlockStateMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
+//TODO: Still not quite functioning
 public final class SpawnerMiner extends CustomEnchantListener {
     public SpawnerMiner() {
         super(CustomEnchants.SPAWNER_MINER);

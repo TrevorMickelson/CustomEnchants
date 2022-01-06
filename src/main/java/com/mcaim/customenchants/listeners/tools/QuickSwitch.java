@@ -1,7 +1,7 @@
 package com.mcaim.customenchants.listeners.tools;
 
 import com.mcaim.customenchants.enchants.CustomEnchants;
-import com.mcaim.customenchants.listeners.CustomEnchantListener;
+import com.mcaim.customenchants.listeners.helpers.CustomEnchantListener;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -51,7 +51,6 @@ public final class QuickSwitch extends CustomEnchantListener {
         String prefix = name.substring(0, name.indexOf("_"));
         return Material.valueOf(prefix + "_" + toolType.name());
     }
-
 
     private enum ToolType {
         AXE() {

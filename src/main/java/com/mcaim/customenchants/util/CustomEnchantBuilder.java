@@ -9,6 +9,7 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 
 //TODO: Upgrading adds new lore lines everytime (It should be replacing them)
+//TODO: Fix this garbage class (re-factor it) it works, but it's a bit gross
 public class CustomEnchantBuilder {
     private static final String ENCHANT_KEY = "CustomEnchant";
 
@@ -44,12 +45,15 @@ public class CustomEnchantBuilder {
     }
 
     public void upgradeCustomEnchant() {
+        removeCustomEnchant();
         currentTier += 1;
-        String oldLore = getCustomEnchantLoreName();
-
-        // Removing old lore and old custom enchant
-        builder.removeLore(oldLore).removeEnchant(customEnchant.getEnchantment());
         addCustomEnchant();
+    }
+
+    public void removeCustomEnchant() {
+        String lore = getCustomEnchantLoreName();
+        builder.removeLore(lore);
+        builder.removeEnchant(customEnchant.getEnchantment());
     }
 
     private String getCustomEnchantLoreName() {

@@ -20,7 +20,11 @@ public class AllEnchantsGui extends Gui {
         int inventoryIndex = 0;
 
         for (ICustomEnchant customEnchant : EnchantStorage.getInstance().getAllCustomEnchants()) {
-            setItem(inventoryIndex, getGuiItemFromCustomEnchant(customEnchant));
+            setItem(inventoryIndex, getGuiItemFromCustomEnchant(customEnchant), (p) -> {
+                if (!player.isOp()) return;
+
+                GuiUtil.givePlayerCustomEnchantBook(player, customEnchant);
+            });
             inventoryIndex++;
         }
 

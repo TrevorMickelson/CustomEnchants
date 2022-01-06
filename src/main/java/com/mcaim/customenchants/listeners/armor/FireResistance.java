@@ -4,8 +4,8 @@ import com.mcaim.customenchants.enchants.CustomEnchants;
 import com.mcaim.customenchants.listeners.helpers.PotionedArmorEventListener;
 import org.bukkit.potion.PotionEffectType;
 
-public class NightVision extends PotionedArmorEventListener {
-    public NightVision() {
-        super(PotionEffectType.NIGHT_VISION, CustomEnchants.NIGHT_VISION);
+public class FireResistance extends PotionedArmorEventListener {
+    public FireResistance() {
+        super(PotionEffectType.FIRE_RESISTANCE, CustomEnchants.FIRE_RESISTANCE);
     }
 }

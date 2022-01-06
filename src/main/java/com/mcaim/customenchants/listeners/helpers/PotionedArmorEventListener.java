@@ -1,4 +1,4 @@
-package com.mcaim.customenchants.listeners;
+package com.mcaim.customenchants.listeners.helpers;
 
 import com.mcaim.core.events.ArmorEquipEvent;
 import com.mcaim.core.events.ArmorRemoveEvent;
@@ -13,10 +13,10 @@ import org.bukkit.potion.PotionEffectType;
  * If an Armor custom enchant is strictly a potion
  * effect, this handles that for every custom enchant
  */
-public class ArmorPotionCustomEnchant extends CustomEnchantListener {
+public class PotionedArmorEventListener extends CustomEnchantListener {
     private final PotionEffectType effectType;
 
-    public ArmorPotionCustomEnchant(PotionEffectType effectType, ICustomEnchant customEnchant) {
+    public PotionedArmorEventListener(PotionEffectType effectType, ICustomEnchant customEnchant) {
         super(customEnchant);
         this.effectType = effectType;
     }
@@ -28,7 +28,7 @@ public class ArmorPotionCustomEnchant extends CustomEnchantListener {
 
         if (!canUseCustomEnchant(player, armorItem)) return;
 
-        player.addPotionEffect(new PotionEffect(effectType, 1000000, getCurrentTier(armorItem)));
+        player.addPotionEffect(new PotionEffect(effectType, 1000000, getCurrentTier(armorItem) - 1));
     }
 
     @EventHandler

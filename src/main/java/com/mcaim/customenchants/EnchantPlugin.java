@@ -8,12 +8,15 @@ import com.mcaim.customenchants.listeners.armor.*;
 import com.mcaim.customenchants.listeners.tools.AutoPickup;
 import com.mcaim.customenchants.listeners.tools.AutoSmelt;
 import com.mcaim.customenchants.listeners.tools.QuickSwitch;
+import com.mcaim.customenchants.listeners.weapons.*;
 import com.mcaim.customenchants.util.EnchantRegistry;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 //TODO: Make sure custom enchants can't be used in protected areas (Example -> SPAWN)
+//TODO: Make sure to add a remove option on custom enchants (make free?)
+//TODO: Implement costs to obtain, upgrade, and remove
 public class EnchantPlugin extends JavaPlugin {
     private static EnchantPlugin plugin;
 
@@ -49,11 +52,22 @@ public class EnchantPlugin extends JavaPlugin {
         pm.registerEvents(new Stomper(), this);
         pm.registerEvents(new Jump(), this);
         pm.registerEvents(new NightVision(), this);
+        pm.registerEvents(new NoFall(), this);
+        pm.registerEvents(new HealthBoost(), this);
+        pm.registerEvents(new Speed(), this);
+        pm.registerEvents(new FireResistance(), this);
 
         // Tools
         pm.registerEvents(new QuickSwitch(), this);
         pm.registerEvents(new AutoPickup(), this);
         pm.registerEvents(new AutoSmelt(), this);
+
+        // Weapons
+        pm.registerEvents(new HealthDisplay(), this);
+        pm.registerEvents(new OneShot(), this);
+        //pm.registerEvents(new ArmyOfDeath(), this);
+        pm.registerEvents(new Poison(), this);
+        pm.registerEvents(new Decapitator(), this);
     }
 
     public static EnchantPlugin getInstance() { return plugin; }

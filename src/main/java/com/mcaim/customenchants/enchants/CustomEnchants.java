@@ -18,6 +18,11 @@ public final class CustomEnchants {
             5, EnchantmentTarget.ARMOR_FEET,
             "Ability to jump higher", CustomEnchantTier.COMMON);
 
+    public static final ICustomEnchant FIRE_RESISTANCE = new CustomEnchantWrapper(
+            "FireResistance", ChatColor.RED,
+            1, EnchantmentTarget.ARMOR_TORSO,
+            "You shall never burn", CustomEnchantTier.COMMON);
+
     // UNCOMMON
     public static final ICustomEnchant NO_FALL = new CustomEnchantWrapper(
             "NoFall", ChatColor.GOLD,
@@ -37,7 +42,7 @@ public final class CustomEnchants {
 
     public static final ICustomEnchant SPEED = new CustomEnchantWrapper(
             "Speed", ChatColor.AQUA,
-            5, EnchantmentTarget.ARMOR_LEGS,
+            3, EnchantmentTarget.ARMOR_LEGS,
             "Run baby run", CustomEnchantTier.RARE);
 
     // VERY RARE
@@ -89,20 +94,14 @@ public final class CustomEnchants {
 
     // UNCOMMON
     public static final ICustomEnchant POISON = new CustomEnchantWrapper(
-            "Poison", ChatColor.GREEN,
-            5, EnchantmentTarget.WEAPON,
+            "Poison", ChatColor.DARK_GREEN,
+            3, EnchantmentTarget.WEAPON,
             "Poisons the enemy", CustomEnchantTier.UNCOMMON);
 
     public static final ICustomEnchant DECAPITATOR = new CustomEnchantWrapper(
             "Decapitator", ChatColor.GOLD,
             5, EnchantmentTarget.WEAPON,
             "Chance to drop a enemies head", CustomEnchantTier.UNCOMMON);
-
-    // RARE
-    public static final ICustomEnchant ARMY_OF_DEATH = new CustomEnchantWrapper(
-            "ArmyOfDeath", ChatColor.DARK_AQUA,
-            5, EnchantmentTarget.WEAPON,
-            "Spawns attack wolfs when hitting an enemy", CustomEnchantTier.RARE);
 
     // VERY RARE
     public static final ICustomEnchant ONE_SHOT = new CustomEnchantWrapper(

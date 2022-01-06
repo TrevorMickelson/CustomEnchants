@@ -1,7 +1,7 @@
 package com.mcaim.customenchants.listeners.armor;
 
 import com.mcaim.customenchants.enchants.CustomEnchants;
-import com.mcaim.customenchants.listeners.CustomEnchantListener;
+import com.mcaim.customenchants.listeners.helpers.CustomEnchantListener;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
