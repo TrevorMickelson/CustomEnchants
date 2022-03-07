@@ -34,4 +34,17 @@ public final class EnchantUtil {
 
         return customEnchantList;
     }
+
+    public static boolean hasCustomEnchant(ItemStack itemStack) {
+        EnchantStorage storage = EnchantStorage.getInstance();
+
+        for (Enchantment enchantment : itemStack.getEnchantments().keySet()) {
+            ICustomEnchant customEnchant = storage.getCustomEnchantFromName(enchantment.getName());
+
+            if (customEnchant != null)
+                return true;
+        }
+
+        return false;
+    }
 }

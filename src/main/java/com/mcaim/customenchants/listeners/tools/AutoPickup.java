@@ -11,7 +11,6 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Collection;
-
 public final class AutoPickup extends CustomEnchantListener {
     public AutoPickup() {
         super(CustomEnchants.AUTO_PICKUP);

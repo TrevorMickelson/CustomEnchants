@@ -4,6 +4,7 @@ import com.mcaim.core.gui.Gui;
 import com.mcaim.core.item.ItemBuild;
 import com.mcaim.core.item.ItemUtil;
 import com.mcaim.core.util.ChatPrefix;
+import com.mcaim.customenchants.util.EnchantUtil;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
@@ -37,17 +38,11 @@ public class MainMenuGui extends Gui {
         fillBackGround();
     }
 
-    private boolean isCustomEnchantedItem(ItemStack item) {
-        if (item == null || item.getType() == Material.AIR) return false;
-
-        return ItemUtil.hasUniqueKey(item, "CustomEnchant");
-    }
-
     private void setCustomEnchantEditorMenuButton(int slot, ItemStack display, Gui gui) {
         setItem(slot, display, (player) -> {
             ItemStack enchantedItem = player.getInventory().getItemInMainHand();
 
-            if (!isCustomEnchantedItem(enchantedItem)) {
+            if (!EnchantUtil.hasCustomEnchant(enchantedItem)) {
                 player.closeInventory();
                 player.sendMessage(ChatPrefix.FAIL + "Must be holding a custom enchanted item to use this!");
                 return;

@@ -1,6 +1,5 @@
 package com.mcaim.customenchants.listeners;
 
-import com.mcaim.core.item.ItemUtil;
 import com.mcaim.core.util.ChatPrefix;
 import com.mcaim.core.util.Util;
 import com.mcaim.customenchants.enchants.ICustomEnchant;
@@ -14,8 +13,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
-
-import java.util.Objects;
 
 public class BookApplyListener implements Listener {
     @EventHandler
@@ -31,8 +28,6 @@ public class BookApplyListener implements Listener {
         ICustomEnchant customEnchant = getCustomEnchantFromCursor(cursor);
 
         if (customEnchant == null) return;
-
-        if (!cursorContainsCustomEnchant(cursor, customEnchant)) return;
 
         Player player = (Player) event.getWhoClicked();
         boolean canAddCustomEnchantToItem = customEnchant.getEnchantmentTarget().includes(clickedItem) &&
@@ -51,10 +46,6 @@ public class BookApplyListener implements Listener {
 
     private boolean isCursorHoldingBook(ItemStack cursor) {
         return cursor.getType() == Material.ENCHANTED_BOOK;
-    }
-
-    private boolean cursorContainsCustomEnchant(ItemStack cursor, ICustomEnchant customEnchant) {
-        return ItemUtil.hasUniqueKey(cursor, customEnchant.getName());
     }
 
     private ICustomEnchant getCustomEnchantFromCursor(ItemStack book) {

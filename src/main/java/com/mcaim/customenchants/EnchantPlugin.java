@@ -65,7 +65,6 @@ public class EnchantPlugin extends JavaPlugin {
         // Weapons
         pm.registerEvents(new HealthDisplay(), this);
         pm.registerEvents(new OneShot(), this);
-        //pm.registerEvents(new ArmyOfDeath(), this);
         pm.registerEvents(new Poison(), this);
         pm.registerEvents(new Decapitator(), this);
     }

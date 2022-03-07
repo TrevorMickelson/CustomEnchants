@@ -11,7 +11,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6500954c-d515-42dc-a3f9-318eff643fd2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/weapons/HealthDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/weapons/HealthDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/EnchantPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/EnchantPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/BookApplyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/BookApplyListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/AutoPickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/listeners/tools/AutoPickup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/CustomEnchantBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mcaim/customenchants/util/CustomEnchantBuilder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641508064870</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="* Removed unnecessary global static variables">
+      <created>1641508827962</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1641508827962</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -157,6 +167,7 @@
     <MESSAGE value="Fixed issue with auto-smelt support" />
     <MESSAGE value="Heavily updated -&gt; Added new CustomEnchants" />
     <MESSAGE value="* Refactored Builder class&#10;* Implemented EnchantUtil class&#10;* Removed GuiUtil class" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Refactored Builder class&#10;* Implemented EnchantUtil class&#10;* Removed GuiUtil class" />
+    <MESSAGE value="* Removed unnecessary global static variables" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Removed unnecessary global static variables" />
   </component>
 </project>
