@@ -1,4 +1,4 @@
-# CustomEnchants
+# CustomEnchants <img align="right" src="https://user-images.githubusercontent.com/70197204/156951647-df2fde2c-1c4b-4623-92f6-2b94eed965c4.png" height="200" width="200">
 This plugin was created to be a simpler, and overall better
 user experience when it comes to custom enchants. 
 
