@@ -16,7 +16,6 @@ user experience when it comes to custom enchants.
 - /Custom_enchants (opens menu)
 - OP players bypass all costs
 
-This project is still in development
 ![customenchants-gif_1](https://user-images.githubusercontent.com/70197204/156951553-eaff7c4e-61ae-480c-a644-54bd08ea25bc.gif)
 ![customenchants-gif_5](https://user-images.githubusercontent.com/70197204/156951554-9240f7fd-171f-48df-aefe-a94c29bbbe85.gif)
 ![customenchants-gif_2](https://user-images.githubusercontent.com/70197204/156951555-0b52af46-bf7c-4507-9463-c023f0bbf178.gif)
